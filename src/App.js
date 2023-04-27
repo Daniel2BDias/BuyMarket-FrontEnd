@@ -1,22 +1,13 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import GlobalStyles from "./Styles/GlobalStyles";
-import ResetStyles from "./Styles/ResetStyles";
+import React from "react";
+import RoutesApp from "./routes";
+import { AuthProvider } from "./contexts/auth";
+import GlobalStyle from "./styles/global";
 
-function App() {
-  return (
-    <>
-    <ResetStyles />
-    <GlobalStyles />
-    <BrowserRouter>
-      <Routes>
-          rota login
-          rota cadastro/signup
-          rota produtos/carrinho
-          rota checkout ou um modal na rota produtos mesmo? (tipo o do driven eats)
-      </Routes>
-    </BrowserRouter>
-    </>
-  );
-};
+const App = () => (
+  <AuthProvider>
+    <RoutesApp />
+    <GlobalStyle />
+  </AuthProvider>
+);
 
 export default App;
