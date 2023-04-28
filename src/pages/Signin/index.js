@@ -47,7 +47,7 @@ const Signin = () => {
           value={senha}
           onChange={(e) => [setSenha(e.target.value), setError("")]}
         />
-        <labelError>{error}</labelError>
+        <LabelError>{error}</LabelError>
         <Button Text="Entrar" onClick={handleLogin} />
         <LabelSignup>
           Não tem uma conta?
@@ -100,7 +100,7 @@ export const LabelSignup = styled.label`
   color: #676767;
 `;
 
-export const labelError = styled.label`
+export const LabelError = styled.label`
   font-size: 14px;
   color: red;
 `;
