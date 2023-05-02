@@ -1,10 +1,10 @@
-import Carrinho from "./Pages/Store/Carrinho"
-import ListaProduto from "./Pages/Store/ListaProdutos"
+import Carrinho from "./Carrinho"
+import ListaProduto from "./ListaProduto"
 import styled from "styled-components"
 import PRODUTOS from "./mock"
 import { useState } from "react"
 
-export default function App() {
+export default function Main () {
   const [carrinho, setCarrinho] = useState([])
 
   function adicionarAoCarrinho(item) {
@@ -23,7 +23,6 @@ export default function App() {
     <ContainerApp>
       <ListaProduto
         produtos={PRODUTOS}
-        carrinho={carrinho}
         adicionarAoCarrinho={adicionarAoCarrinho}
       />
       <Carrinho carrinho={carrinho} removerDoCarrinho={removerDoCarrinho} />

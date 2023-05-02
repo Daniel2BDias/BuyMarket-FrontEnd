@@ -1,10 +1,12 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import Home from "../pages/Home";
 import Signin from "../pages/Signin";
 import Signup from "../pages/Signup";
 import CheckOut from "../pages/CheckOut";
+import Main from "../pages/Store";
+import { CartContext } from "../contexts/carrinho";
 
 const Private = ({ Item }) => {
   const { signed } = useAuth();
@@ -13,7 +15,11 @@ const Private = ({ Item }) => {
 };
 
 const RoutesApp = () => {
+
+  const [cart, setCart] = useState();
+  
   return (
+    <CartContext.Provider value={{cart, setCart}}>
     <BrowserRouter>
       <Fragment>
         <Routes>
@@ -22,9 +28,11 @@ const RoutesApp = () => {
           <Route exact path="/signup" element={<Signup />} />
           <Route path="*" element={<Signin />} />
           <Route exact path ="/check-out" element={<CheckOut />} />
+          <Route path="/main" element={<Main />}/>
         </Routes>
       </Fragment>
     </BrowserRouter>
+    </CartContext.Provider>
   );
 };
 

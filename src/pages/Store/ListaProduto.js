@@ -55,9 +55,4 @@ const ContainerListaProdutos = styled.div`
   flex-wrap: wrap;
 `;
 
-const ContainerUsuario = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
-
 

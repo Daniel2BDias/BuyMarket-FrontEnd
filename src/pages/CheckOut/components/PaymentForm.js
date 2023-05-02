@@ -9,16 +9,18 @@ const PaymentForm = ({ onClick }) => {
   return (
     <UserInfoForm onSubmit={confirmPayment}>
       <h1>Insira seus dados, por obséquio.</h1>
-      <input name="address" placeholder="Endereço" required></input>
+      <input name="Cep" placeholder="CEP - XXXXX-XXX"></input>
+      <input name="address" placeholder="Número XX-XX" required></input>
+      <input name="complement" placeholder="Complemento"></input>
       <input name="card-number" placeholder="Número do Cartão" required></input>
       <CardInfoRadio>
-        <label htmlFor="Crédito">Crédito</label>
+        <label>Crédito</label>
         <input type="radio" name="option" value="credit" required></input>
-        <label htmlFor="Débito">Débito</label>
+        <label>Débito</label>
         <input type="radio" name="option" value="debit" required></input>
       </CardInfoRadio>
-      <input placeholder="Vencimento" required></input>
-      <input placeholder="CVC" required></input>
+      <input placeholder="Vencimento - MM/YY" required></input>
+      <input placeholder="CVC - XXX" required></input>
       <button type="submit">Confirmar Compra</button>
       <button onClick={onClick}>Cancelar</button>
     </UserInfoForm>

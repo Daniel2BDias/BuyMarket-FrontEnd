@@ -2,75 +2,14 @@ import { Main, ProductList } from "./styles";
 import ProductComp from "./components/Product";
 import ConfirmButtonComp from "./components/ConfirmButton";
 import ConfirmationModal from "./Modal/ConfirmationModal";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-const produtos = [
-  {
-    name: "produto",
-    value: "valor",
-    image:
-      "https://betelbrasileiro.com.br/wp-content/uploads/2022/09/produto.png",
-  },
-  {
-    name: "produto",
-    value: "valor",
-    image:
-      "https://betelbrasileiro.com.br/wp-content/uploads/2022/09/produto.png",
-  },
-  {
-    name: "produto",
-    value: "valor",
-    image:
-      "https://betelbrasileiro.com.br/wp-content/uploads/2022/09/produto.png",
-  },
-  {
-    name: "produto",
-    value: "valor",
-    image:
-      "https://betelbrasileiro.com.br/wp-content/uploads/2022/09/produto.png",
-  },
-  {
-    name: "produto",
-    value: "valor",
-    image:
-      "https://betelbrasileiro.com.br/wp-content/uploads/2022/09/produto.png",
-  },
-  {
-    name: "produto",
-    value: "valor",
-    image:
-      "https://betelbrasileiro.com.br/wp-content/uploads/2022/09/produto.png",
-  },
-  {
-    name: "produto",
-    value: "valor",
-    image:
-      "https://betelbrasileiro.com.br/wp-content/uploads/2022/09/produto.png",
-  },
-  {
-    name: "produto",
-    value: "valor",
-    image:
-      "https://betelbrasileiro.com.br/wp-content/uploads/2022/09/produto.png",
-  },
-  {
-    name: "produto",
-    value: "valor",
-    image:
-      "https://betelbrasileiro.com.br/wp-content/uploads/2022/09/produto.png",
-  },
-  {
-    name: "produto",
-    value: "valor",
-    image:
-      "https://betelbrasileiro.com.br/wp-content/uploads/2022/09/produto.png",
-  },
-];
+import { CartContext } from "../../contexts/carrinho";
 
 const CheckOut = () => {
 
     const navigate = useNavigate();
+    const { cart } = useContext(CartContext);
 
   const [modal, setModal] = useState("none");
 
@@ -85,15 +24,15 @@ const CheckOut = () => {
   };
 
   const cancelOperation = () => {
-    navigate("home");
+    navigate("/main");
   };
 
   return (
     <Main>
         <h1>Deseja adquirir estes items/serviços?</h1>
       <ProductList>
-        {produtos.map((p, i) => (
-          <ProductComp key={i} image={p.image} value={p.value} name={p.name} />
+        {cart.map((p, i) => (
+          <ProductComp key={i} image={p.imagem} value={p.preco} name={p.nome} />
         ))}
       </ProductList>
       <ConfirmButtonComp content={"É isso mesmo!"} onClick={hideModal} />

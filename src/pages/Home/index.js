@@ -15,8 +15,8 @@ const Home = () => {
     <Logo>BuyMarket</Logo>
     <Container>
       <Title>Bem-vindo à nossa plataforma!</Title>
-      <LogoutButton onClick={() => [signout(), navigate("/login")]}>
-        <div>Sair</div>
+      <Button Text="Proseeguir" onClick={() => navigate("/main")}></Button>
+      <LogoutButton Text="Sair" onClick={() => [signout(), navigate("/login")]}>
       </LogoutButton>
     </Container>
     </>
