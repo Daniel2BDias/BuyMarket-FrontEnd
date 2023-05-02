@@ -23,7 +23,7 @@ export default function Carrinho({ carrinho, removerDoCarrinho }) {
                     removerDoCarrinho={removerDoCarrinho}
                 />
             ))}
-            <Button onClick={finalizarCompra}>Finalizar Compra</Button>
+            {carrinho === [] ? "" : <Button onClick={finalizarCompra}>Finalizar Compra</Button>}
         </ContainerCarrinho>
     )
 }
