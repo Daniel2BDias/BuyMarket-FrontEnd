@@ -53,7 +53,6 @@ const PageStore = styled.div`
   left: 0;
   width: 80vw;
   height: 100vh;
-  background-color: white;
 `;
 const ContainerListaProdutos = styled.div`
   display: flex;
@@ -64,5 +63,10 @@ const ContainerListaProdutos = styled.div`
     height:150px;
   }
 `;
+
+const Center = styled.div`
+  display: flex;
+  justify-content: center;
+`
 
 
