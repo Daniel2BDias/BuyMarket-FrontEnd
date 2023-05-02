@@ -25,7 +25,7 @@ export default function ListaProduto({ produtos, adicionarAoCarrinho }) {
 
 
 const Logo = styled.div`
-background: linear-gradient(to right, #0d5c92, #4682b4); /* alterando as cores para uma tonalidade mais azulada */
+background: linear-gradient(to right, #0d5c92, #4682b4); 
   color: white;
   padding: 20px;
   text-align: center;
@@ -34,9 +34,6 @@ background: linear-gradient(to right, #0d5c92, #4682b4); /* alterando as cores p
   font-family: "Arial Black", sans-serif;
   width: 100vw;
 
-  img {
-    width:50px;
-  }
 `;
 
 
@@ -53,6 +50,12 @@ const PageStore = styled.div`
 const ContainerListaProdutos = styled.div`
   display: flex;
   flex-wrap: wrap;
+
+  img {
+    width:150px;
+    height:150px;
+  }
 `;
+
 
 
