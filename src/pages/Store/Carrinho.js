@@ -1,12 +1,13 @@
 import CardCarrinho from "./CardCarrinho"
 import styled from "styled-components"
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../contexts/carrinho";
 
 export default function Carrinho({ carrinho, removerDoCarrinho }) {
     const navigate = useNavigate();
     const { setCart } = useContext(CartContext);
+    const [ botao, setBotao ] = useState(undefined);
 
     const finalizarCompra = () => {
         navigate("/check-out");
@@ -23,7 +24,7 @@ export default function Carrinho({ carrinho, removerDoCarrinho }) {
                     removerDoCarrinho={removerDoCarrinho}
                 />
             ))}
-            {carrinho === [] ? "" : <Button onClick={finalizarCompra}>Finalizar Compra</Button>}
+            <Button hidden={botao} onClick={finalizarCompra}>Finalizar Compra</Button>
         </ContainerCarrinho>
     )
 }
@@ -53,4 +54,5 @@ const Button = styled.button`
   font-weight: 600;
   font-size: 16px;
   max-width: 350px;
+  display: ${props => props.hidden === undefined ? "none" : "initial"};
 `;

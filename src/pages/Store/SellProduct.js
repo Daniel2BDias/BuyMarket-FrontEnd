@@ -4,7 +4,9 @@ import Input from "../../components/Input";
 import { useNavigate } from "react-router-dom";
 
 export default function SellProduct() {
-    const navigate = useNavigate()
+
+    const navigate = useNavigate();
+
   return (
     <Wrapper>
       <Container>
