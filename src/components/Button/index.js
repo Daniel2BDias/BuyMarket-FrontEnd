@@ -26,4 +26,8 @@ export const Button = styled.button`
   font-size: 16px;
   max-width: 350px;
   margin: 3px;
+
+  &:active {
+    transform: scale(0.97);
+  }
 `;

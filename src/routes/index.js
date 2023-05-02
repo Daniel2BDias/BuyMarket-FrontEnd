@@ -7,6 +7,7 @@ import Signup from "../pages/Signup";
 import CheckOut from "../pages/CheckOut";
 import Main from "../pages/Store";
 import { CartContext } from "../contexts/carrinho";
+import SellProduct from "../pages/Store/SellProduct";
 
 const Private = ({ Item }) => {
   const { signed } = useAuth();
@@ -29,6 +30,7 @@ const RoutesApp = () => {
           <Route path="*" element={<Signin />} />
           <Route exact path ="/check-out" element={<CheckOut />} />
           <Route path="/main" element={<Main />}/>
+          <Route path="cadastro-produto" element={<SellProduct />}></Route>
         </Routes>
       </Fragment>
     </BrowserRouter>

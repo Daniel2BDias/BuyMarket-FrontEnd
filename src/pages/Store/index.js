@@ -2,10 +2,16 @@ import Carrinho from "./Carrinho"
 import ListaProduto from "./ListaProduto"
 import styled from "styled-components"
 import PRODUTOS from "./mock"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import MOTD from "./MOTD"
 
 export default function Main () {
-  const [carrinho, setCarrinho] = useState([])
+  const [ carrinho, setCarrinho ] = useState([])
+  const [ products, setProducts ] = useState(undefined);
+
+  useEffect(() => {
+      setProducts(PRODUTOS)
+  }, []);
 
   function adicionarAoCarrinho(item) {
     const estaNoArray = carrinho.some((prodAdicionado) => prodAdicionado.id === item.id)
@@ -21,10 +27,10 @@ export default function Main () {
 
   return (
     <ContainerApp>
-      <ListaProduto
-        produtos={PRODUTOS}
+      {products ? <ListaProduto
+        produtos={products}
         adicionarAoCarrinho={adicionarAoCarrinho}
-      />
+      /> : <MOTD/>}
       <Carrinho carrinho={carrinho} removerDoCarrinho={removerDoCarrinho} />
     </ContainerApp>
   )

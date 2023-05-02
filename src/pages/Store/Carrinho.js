@@ -33,6 +33,9 @@ const ContainerCarrinho = styled.div`
   width: ${props => props.carrinho.length === 0 ? "0px" : "25vw"};
   height: 100vh;
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   right: 0;
   background-color:#f2f2f2;
 `;
@@ -42,7 +45,7 @@ const Button = styled.button`
   outline: none;
   border: none;
   border-radius: 5px;
-  width: 100%;
+  width: 80%;
   cursor: pointer;
   background-color: #046ee5;
   color: white;

@@ -13,4 +13,4 @@ const PRODUTOS = [
     { id: 13, nome: "Shorts", preco: "R$60,00", imagem: "https://cdn-images.farfetch-contents.com/14/16/01/84/14160184_18904041_300.jpg" },
   ]
 
-  export default PRODUTOS
+  export default PRODUTOS;

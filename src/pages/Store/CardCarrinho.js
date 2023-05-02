@@ -18,6 +18,8 @@ export default function CardCarrinho({ produto, removerDoCarrinho }) {
 const CarrinhoItemContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 80%;
   border-radius: 5px;
   background-color: #f9f9f9;
   margin: 10px;
