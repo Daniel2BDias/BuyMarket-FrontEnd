@@ -32,11 +32,12 @@ const ContainerCarrinho = styled.div`
   border: 1px solid #f2f2f2;
   width: ${props => props.carrinho.length === 0 ? "0px" : "25vw"};
   height: 100vh;
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   right: 0;
+  top: 0;
   background-color:#f2f2f2;
 `;
 
