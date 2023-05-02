@@ -28,17 +28,30 @@ export const Main = styled.div`
 `;
 
 export const ProductList = styled.div`
-    height: 80%;
-    width: 90%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    border: 1px dotted #4682b4;
-    border-radius: 5px;
-    overflow-Y: scroll;
+  height: 100%;
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow-Y: scroll;
+  padding: 20px;
 
-    margin-bottom: 10px;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #4682b4;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+  }
 `;
 
 
@@ -87,54 +100,73 @@ export const ConfirmButton = styled.button`
 `;
 
 export const UserInfoForm = styled.form`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 400px;
-    width: 90%;
-    max-width: 600px;
-    background-color: #046ee5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 460px;
+  width: 90%;
+  max-width: 600px;
+  background-color: #046ee5;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 10px;
+
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  label {
+    display: block;
+    width: 100%;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  input {
+    width: 100%;
+    height: 40px;
+    margin: 5px 0 20px;
+    padding: 5px;
+    border: none;
     border-radius: 5px;
-    padding: 10px;
+    font-size: 16px;
+    background-color: #f0f0f0;
 
-    h1 {
-        font-size: 20px;
-        width: 80%;
-        white-space: pre-wrap;
-        text-align: center;
-    }
+  }
 
-    input {
-        width: 100%;
-        height: 40px;
-        margin: 5px;
-        padding: 5px;
-    }
+  button {
+    width: 200px;
+    height: 40px;
+    margin: 20px 0 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #0d5c92;
+    transition: transform 0.1s ease-in-out;
+  }
 
-    button {
-        width: 200px;
-        height: 30px;
-        margin: 3px;
-        border: none;
-        border-radius: 5px;
-        font-size: 20px;
-        color: black;
-        background-color: white;
-    }
+  button:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+  }
 
-    button:last-child {
-        background-color: #046ee5;
-    }
+  button:active {
+    transform: scale(0.97);
+  }
 
-    button:hover {
-        cursor: pointer;
-    }
-
-    button:active {
-        transform: scale(0.97);
-    }
 `;
+
 
 export const PaymentInfoContainer = styled.div`
     display: ${props => props.modal === "none" ? "none" : props.modal};
