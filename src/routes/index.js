@@ -30,7 +30,7 @@ const RoutesApp = () => {
           <Route path="*" element={<Signin />} />
           <Route exact path ="/check-out" element={<CheckOut />} />
           <Route path="/main" element={<Main />}/>
-          <Route path="cadastro-produto" element={<SellProduct />}></Route>
+          <Route path="/cadastro-produto" element={<SellProduct />}></Route>
         </Routes>
       </Fragment>
     </BrowserRouter>

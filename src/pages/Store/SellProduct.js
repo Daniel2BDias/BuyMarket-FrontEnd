@@ -2,19 +2,28 @@ import styled from "styled-components";
 import MyButton from "../../components/Button";
 import Input from "../../components/Input";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
 
 export default function SellProduct() {
 
     const navigate = useNavigate();
+    const [body, setBody] = useState({})
+
+    const handleSubmit = () => {
+        const promise = axios.post();
+        promise.then();
+        promise.catch();
+    };
 
   return (
     <Wrapper>
       <Container>
         <Title>Cadastre um novo produto!</Title>
-        <Input placeholder="imagem do produto" />
-        <Input placeholder="Nome do Produto" />
-        <Input placeholder="Preço do produto" />
-        <MyButton Text="Cadastrar Produto" />
+        <Input placeholder="imagem do produto" name="image" value={body.image} onChange={(e) => setBody({...body, [e.target.name]: e.target.value})}/>
+        <Input placeholder="Nome do Produto" name="name" value="" onChange={(e) => setBody({...body, [e.target.name]: e.target.value})}/>
+        <Input placeholder="Preço do produto" name="value" onChange={(e) => setBody({...body, [e.target.name]: e.target.value})}/>
+        <MyButton Text="Cadastrar Produto" onClick={handleSubmit}/>
         <Cancel onClick={() => navigate(-1)}>Cancelar</Cancel>
       </Container>
     </Wrapper>

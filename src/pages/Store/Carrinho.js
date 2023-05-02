@@ -7,12 +7,10 @@ import { CartContext } from "../../contexts/carrinho";
 export default function Carrinho({ carrinho, removerDoCarrinho }) {
     const navigate = useNavigate();
     const { setCart } = useContext(CartContext);
-    const [ botao, setBotao ] = useState(undefined);
 
     const finalizarCompra = () => {
         navigate("/check-out");
         setCart(carrinho);
-
     };
 
     return (
@@ -24,7 +22,7 @@ export default function Carrinho({ carrinho, removerDoCarrinho }) {
                     removerDoCarrinho={removerDoCarrinho}
                 />
             ))}
-            <Button hidden={botao} onClick={finalizarCompra}>Finalizar Compra</Button>
+            <Button hidden={carrinho} onClick={finalizarCompra}>Finalizar Compra</Button>
         </ContainerCarrinho>
     )
 }
@@ -35,11 +33,12 @@ const ContainerCarrinho = styled.div`
   height: 100vh;
   position: fixed;
   display: flex;
+  overflow-Y: scroll;
   flex-direction: column;
   align-items: center;
   right: 0;
   top: 0;
-  background-color:#f2f2f2;
+  background-color: #f2f2f2;
 `;
 
 const Button = styled.button`
@@ -54,5 +53,5 @@ const Button = styled.button`
   font-weight: 600;
   font-size: 16px;
   max-width: 350px;
-  display: ${props => props.hidden === undefined ? "none" : "initial"};
+  display: ${props => props.hidden.length === 0 ? "none" : "initial"};
 `;
