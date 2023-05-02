@@ -66,7 +66,3 @@ const ContainerListaProdutos = styled.div`
 `;
 
 
-const Center = styled.div`
-  display: flex;
-  justify-content: center;
-`;
