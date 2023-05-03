@@ -13,10 +13,10 @@ export default function SellProduct() {
   const handleSubmit = () => {
     const { url, title, price } = body;
     
-    if(image === "" || value === "" || name === "") {
+    if(url === "" || price === "" || title === "") {
         handleError();
         return
-    }
+    };
 
     const promise = axios.post(``, body);
     promise.then(() => alert("Produto cadastrado e à venda!"));
