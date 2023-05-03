@@ -34,7 +34,7 @@ const ContainerCarrinho = styled.div`
   border: 1px solid #f2f2f2;
   width: 25vw;
   height: 100vh;
-  position: fixed;
+  position: absolute;
   display: ${(props) => (props.hasProducts ? "flex" : "none")};
   overflow-y: scroll;
   flex-direction: column;
@@ -43,6 +43,7 @@ const ContainerCarrinho = styled.div`
   top: 100px;
   background-color: #f2f2f2;
   border-left: 1px solid #046ee5;
+  z-index: 2;
 `;
 
 const Button = styled.button`

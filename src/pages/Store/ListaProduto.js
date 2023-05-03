@@ -114,8 +114,6 @@ const ContainerListaProdutos = styled.div`
   }
 `;
 
-
-
 const Button = styled.button`
   padding: 16px 20px;
   outline: none;
