@@ -28,7 +28,6 @@ export default function ListaProduto({ adicionarAoCarrinho, hasProducts, setHasP
 
   const displayCart = () => {
     setHasProducts(!hasProducts)
-    console.log(hasProducts)
   };
 
   return (
