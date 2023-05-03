@@ -64,8 +64,8 @@ export const ProductImg = styled.img`
 `;
 
 export const ProductContainer = styled.div`
-    height: 150px;
-    width: 150px;
+    height: auto;
+    width: auto;
     max-height: 150px;
     max-width: 150px;
     margin: 3px;
