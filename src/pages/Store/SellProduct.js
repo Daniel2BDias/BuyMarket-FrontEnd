@@ -6,24 +6,56 @@ import { useState } from "react";
 import axios from "axios";
 
 export default function SellProduct() {
+  const navigate = useNavigate();
+  const [body, setBody] = useState({name: "", value: "", image: ""});
+  const [error, setError] = useState(false);
 
-    const navigate = useNavigate();
-    const [body, setBody] = useState({})
+  const handleSubmit = () => {
+    const { image, name, value } = body;
+    
+    if(image === "" || value === "" || name === "") {
+        handleError();
+        return
+    }
 
-    const handleSubmit = () => {
-        const promise = axios.post();
-        promise.then();
-        promise.catch();
-    };
+    const promise = axios.post(``, body);
+    promise.then(() => alert("Produto cadastrado e à venda!"));
+    promise.catch((err) => alert(`Ocorreu um erro inesperado, tente novamente mais tarde.`));
+  };
+
+  const handleError = () => {
+      setError(true);
+  };
 
   return (
     <Wrapper>
       <Container>
         <Title>Cadastre um novo produto!</Title>
-        <Input placeholder="imagem do produto" name="image" value={body.image} onChange={(e) => setBody({...body, [e.target.name]: e.target.value})}/>
-        <Input placeholder="Nome do Produto" name="name" value="" onChange={(e) => setBody({...body, [e.target.name]: e.target.value})}/>
-        <Input placeholder="Preço do produto" name="value" onChange={(e) => setBody({...body, [e.target.name]: e.target.value})}/>
-        <MyButton Text="Cadastrar Produto" onClick={handleSubmit}/>
+        <Input
+          placeholder="imagem do produto"
+          name="image"
+          value={body.image}
+          onChange={(e) =>
+            setBody({ ...body, [e.target.name]: e.target.value })
+          }
+        />
+        <Input
+          placeholder="Nome do Produto"
+          name="name"
+          value=""
+          onChange={(e) =>
+            setBody({ ...body, [e.target.name]: e.target.value })
+          }
+        />
+        <Input
+          placeholder="Preço do produto"
+          name="value"
+          onChange={(e) =>
+            setBody({ ...body, [e.target.name]: e.target.value })
+          }
+        />
+        {error ? <Error>*Preencha todos os campos*</Error> : null}
+        <MyButton Text="Cadastrar Produto" onClick={handleSubmit} />
         <Cancel onClick={() => navigate(-1)}>Cancelar</Cancel>
       </Container>
     </Wrapper>
@@ -66,4 +98,9 @@ const Cancel = styled.button`
   font-size: 16px;
   max-width: 350px;
   margin: 3px;
+`;
+
+const Error = styled.div`
+  color: red;
+  font-size: 10px;
 `;

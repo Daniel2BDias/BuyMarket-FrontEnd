@@ -12,7 +12,7 @@ export default function ListaProduto({ produtos, adicionarAoCarrinho }) {
       <Center>
         <MyButton
           Text="Cadastrar Produto"
-          onClick={() => navigate("cadastro-produto")}
+          onClick={() => navigate("/cadastro-produto")}
         />
       </Center>
       <ContainerListaProdutos>
