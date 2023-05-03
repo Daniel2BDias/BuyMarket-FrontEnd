@@ -7,11 +7,11 @@ import axios from "axios";
 
 export default function SellProduct() {
   const navigate = useNavigate();
-  const [body, setBody] = useState({name: "", value: "", image: ""});
+  const [body, setBody] = useState({title: "", price: "", url: ""});
   const [error, setError] = useState(false);
 
   const handleSubmit = () => {
-    const { image, name, value } = body;
+    const { url, title, price } = body;
     
     if(image === "" || value === "" || name === "") {
         handleError();
@@ -33,7 +33,7 @@ export default function SellProduct() {
         <Title>Cadastre um novo produto!</Title>
         <Input
           placeholder="imagem do produto"
-          name="image"
+          name="url"
           value={body.image}
           onChange={(e) =>
             setBody({ ...body, [e.target.name]: e.target.value })
@@ -41,7 +41,7 @@ export default function SellProduct() {
         />
         <Input
           placeholder="Nome do Produto"
-          name="name"
+          name="title"
           value=""
           onChange={(e) =>
             setBody({ ...body, [e.target.name]: e.target.value })
@@ -49,7 +49,7 @@ export default function SellProduct() {
         />
         <Input
           placeholder="Preço do produto"
-          name="value"
+          name="price"
           onChange={(e) =>
             setBody({ ...body, [e.target.name]: e.target.value })
           }
