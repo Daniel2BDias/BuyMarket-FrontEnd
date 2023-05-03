@@ -18,13 +18,18 @@ const MyButton = ({ Text, onClick, Type = "button" }) => {
 };
 
 
-export default function ListaProduto({ adicionarAoCarrinho }) {
+export default function ListaProduto({ adicionarAoCarrinho, hasProducts, setHasProducts }) {
   const navigate = useNavigate();
   const [busca, setBusca] = useState("");
 
   const produtosFiltrados = PRODUTOS.filter((produtoPesquisado) =>
     produtoPesquisado.nome.toLowerCase().startsWith(busca.toLowerCase())
   );
+
+  const displayCart = () => {
+    setHasProducts(!hasProducts)
+    console.log(hasProducts)
+  };
 
   return (
     <PageStore>
@@ -41,11 +46,11 @@ export default function ListaProduto({ adicionarAoCarrinho }) {
           <p>Frete grátis </p>
           <MyButton
             Text="Cadastre seu produto"
-            onClick={() => navigate("cadastro-produto")}
+            onClick={() => navigate("/cadastro-produto")}
 
           />
           <img src={user} />
-          <img src={CarrinhoFundoPreto} />
+          <img onClick={displayCart} src={CarrinhoFundoPreto} />
         </Aviso>
       </Logo>
       <ContainerListaProdutos>
@@ -166,5 +171,17 @@ p {
   }
   `
   } 2s linear infinite;
+}
+
+img {
+  margin: 10px;
+}
+
+img:last-child:hover {
+  cursor: pointer;
+}
+
+img:last-child:active {
+  transform: scale(1.1);
 }
 `;
